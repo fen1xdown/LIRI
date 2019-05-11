@@ -1,0 +1,27 @@
+{
+  "name": "liri",
+  "version": "0.0.1",
+  "description": "language interpretation and recognition interface",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fen1xdown/LIRI.git"
+  },
+  "keywords": [
+    "lirr",
+    "language",
+    "interpretation",
+    "and",
+    "recognition",
+    "interface"
+  ],
+  "author": "Cameron Calder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fen1xdown/LIRI/issues"
+  },
+  "homepage": "https://github.com/fen1xdown/LIRI#readme"
+}
