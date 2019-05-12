@@ -11,10 +11,9 @@
     "url": "git+https://github.com/fen1xdown/LIRI.git"
   },
   "keywords": [
-    "lirr",
+    "liri",
     "language",
     "interpretation",
-    "and",
     "recognition",
     "interface"
   ],
