@@ -34,12 +34,14 @@ function concertThis(artist) {
     if (artist == null) {
         artist = "Sabaton";
     }
-    request("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp", function (response)  {
-        console.log('***************************************');    
-        console.log('venue:' + response.venue.name);
-        console.log('city: ' + response.venue.city);
-        console.log('date and time :' + response.datetime);
-        console.log('***************************************');
+    request("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp", function (err, response)  {
+        concertName = response.data;
+        console.log(concertName);
+        // console.log('***************************************');    
+        // console.log('venue:' + response.body[0].venue.name);
+        // console.log('city: ' + response.body[0].venue.city);
+        // console.log('date and time :' + response.body[0].datetime);
+        // console.log('***************************************');
         }
     )
 }
@@ -53,8 +55,9 @@ function spotifyThis(songName) {
         songName = 'Bismark';
     }
     var parameters = songName;
-    spotify.search({ type: 'track', query: parameters }, function( data) {
+    spotify.search({ type: 'track', query: parameters }, function(err, data) {
           for (var i = 0; i < data.tracks.items.length; i++) {
+            //   console.log(data);
             var artists = data.tracks.items[i].artists[0].name;
             var name = data.tracks.items[i].name;
             var preview = data.tracks.items[i].preview_url;
@@ -73,7 +76,7 @@ function movieThis(movieName) {
     if (movieName == null) {
         movieName = '';
     }
-    request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece", function( response, body) {
+    request("http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece", function(err, response, body) {
     if (response.statusCode === 200) {
         console.log('***************************************');
         console.log("Title: " + JSON.parse(body).Title);
@@ -104,6 +107,11 @@ function runThis() {
             case 'movie-this':
                 movieName = userInput;
                 movieThis(movieName);
+            break;
+
+            case 'concert-this':
+                artist = userInput;
+                concertThis(artist);
             break;
 
             case 'do-what-it-says': 
